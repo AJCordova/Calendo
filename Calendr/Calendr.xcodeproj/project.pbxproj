@@ -18,9 +18,9 @@
 		5CDCDC052829982300F0296E /* CalendrTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CDCDC042829982300F0296E /* CalendrTests.swift */; };
 		5CDCDC0F2829982300F0296E /* CalendrUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CDCDC0E2829982300F0296E /* CalendrUITests.swift */; };
 		5CDCDC112829982300F0296E /* CalendrUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CDCDC102829982300F0296E /* CalendrUITestsLaunchTests.swift */; };
-		5CDCDC202829992200F0296E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5CDCDC1F2829992200F0296E /* GoogleService-Info.plist */; };
-		5CDCDC212829992200F0296E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5CDCDC1F2829992200F0296E /* GoogleService-Info.plist */; };
-		5CDCDC222829992200F0296E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5CDCDC1F2829992200F0296E /* GoogleService-Info.plist */; };
+		5CDCDC24282A269D00F0296E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5CDCDC23282A269D00F0296E /* GoogleService-Info.plist */; };
+		5CDCDC25282A269D00F0296E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5CDCDC23282A269D00F0296E /* GoogleService-Info.plist */; };
+		5CDCDC26282A269D00F0296E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5CDCDC23282A269D00F0296E /* GoogleService-Info.plist */; };
 		7B1634581B62883B22CD69D9 /* Pods_CalendrTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC2A9DB25EAC87C4DB635126 /* Pods_CalendrTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -57,7 +57,7 @@
 		5CDCDC0A2829982300F0296E /* CalendrUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CalendrUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5CDCDC0E2829982300F0296E /* CalendrUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendrUITests.swift; sourceTree = "<group>"; };
 		5CDCDC102829982300F0296E /* CalendrUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendrUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		5CDCDC1F2829992200F0296E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		5CDCDC23282A269D00F0296E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../GoogleService-Info.plist"; sourceTree = "<group>"; };
 		74F123B081C3105CDB4C130F /* Pods-Calendr-CalendrUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Calendr-CalendrUITests.debug.xcconfig"; path = "Target Support Files/Pods-Calendr-CalendrUITests/Pods-Calendr-CalendrUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		7A30B1499342F0E3D77C6B7A /* Pods_Calendr.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Calendr.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		81331A76F7C52C63978FBE46 /* Pods-CalendrTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CalendrTests.debug.xcconfig"; path = "Target Support Files/Pods-CalendrTests/Pods-CalendrTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -137,7 +137,7 @@
 				5CDCDBF62829982300F0296E /* Assets.xcassets */,
 				5CDCDBF82829982300F0296E /* LaunchScreen.storyboard */,
 				5CDCDBFB2829982300F0296E /* Info.plist */,
-				5CDCDC1F2829992200F0296E /* GoogleService-Info.plist */,
+				5CDCDC23282A269D00F0296E /* GoogleService-Info.plist */,
 			);
 			path = Calendr;
 			sourceTree = "<group>";
@@ -282,7 +282,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5CDCDBFA2829982300F0296E /* LaunchScreen.storyboard in Resources */,
-				5CDCDC202829992200F0296E /* GoogleService-Info.plist in Resources */,
+				5CDCDC24282A269D00F0296E /* GoogleService-Info.plist in Resources */,
 				5CDCDBF72829982300F0296E /* Assets.xcassets in Resources */,
 				5CDCDBF52829981900F0296E /* Main.storyboard in Resources */,
 			);
@@ -292,7 +292,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5CDCDC212829992200F0296E /* GoogleService-Info.plist in Resources */,
+				5CDCDC25282A269D00F0296E /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -300,7 +300,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5CDCDC222829992200F0296E /* GoogleService-Info.plist in Resources */,
+				5CDCDC26282A269D00F0296E /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

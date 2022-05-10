@@ -89,3 +89,5 @@ fastlane/test_output
 
 iOSInjectionProject/
 Calendr/Calendr.xcworkspace/contents.xcworkspacedata
+Calendr/Calendr.xcworkspace/xcshareddata/IDEWorkspaceChecks.plist
+GoogleService-Info.plist
