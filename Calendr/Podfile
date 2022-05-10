@@ -6,6 +6,7 @@ target 'Calendr' do
   use_frameworks!
 
   # Pods for Calendr
+  pod 'SnapKit', '~> 5.6.0'
 
   # Authentication
   pod 'FirebaseFirestore'
