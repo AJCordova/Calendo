@@ -130,12 +130,9 @@
 		5CDCDBEC2829981900F0296E /* Calendr */ = {
 			isa = PBXGroup;
 			children = (
-				5CDCDBED2829981900F0296E /* AppDelegate.swift */,
-				5CDCDBEF2829981900F0296E /* SceneDelegate.swift */,
+				5CDCDC27282A271E00F0296E /* Commons */,
 				5CDCDBF12829981900F0296E /* ViewController.swift */,
-				5CDCDBF32829981900F0296E /* Main.storyboard */,
 				5CDCDBF62829982300F0296E /* Assets.xcassets */,
-				5CDCDBF82829982300F0296E /* LaunchScreen.storyboard */,
 				5CDCDBFB2829982300F0296E /* Info.plist */,
 				5CDCDC23282A269D00F0296E /* GoogleService-Info.plist */,
 			);
@@ -157,6 +154,17 @@
 				5CDCDC102829982300F0296E /* CalendrUITestsLaunchTests.swift */,
 			);
 			path = CalendrUITests;
+			sourceTree = "<group>";
+		};
+		5CDCDC27282A271E00F0296E /* Commons */ = {
+			isa = PBXGroup;
+			children = (
+				5CDCDBF32829981900F0296E /* Main.storyboard */,
+				5CDCDBF82829982300F0296E /* LaunchScreen.storyboard */,
+				5CDCDBED2829981900F0296E /* AppDelegate.swift */,
+				5CDCDBEF2829981900F0296E /* SceneDelegate.swift */,
+			);
+			path = Commons;
 			sourceTree = "<group>";
 		};
 		FB15344B219959065A95C1E1 /* Pods */ = {
