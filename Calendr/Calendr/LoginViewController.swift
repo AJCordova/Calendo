@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  LoginViewController.swift
 //  Calendr
 //
 //  Created by Amiel Jireh Cordova on 5/10/22.
@@ -7,11 +7,11 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class LoginViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = UIColor.systemBackground
+        view.backgroundColor = .red
         // Do any additional setup after loading the view.
     }
 
