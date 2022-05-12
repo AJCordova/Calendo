@@ -30,8 +30,7 @@ final class SigninCoordinator: Coordinator {
 // MARK: Nav controls
 extension SigninCoordinator: SigninCoordinatorDelegate {
     func goToEvents() {
-        let viewModel = EventsViewModel()
-        let viewController = EventsViewController(viewModel: viewModel)
-        navigationController.pushViewController(viewController, animated: true)
+        let eventsCoordinator = EventsCoordinator(navigationController: navigationController)
+        coordinate(to: eventsCoordinator)
     }
 }
