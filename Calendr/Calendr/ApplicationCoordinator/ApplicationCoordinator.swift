@@ -9,9 +9,16 @@ import UIKit
 
 protocol Coordinator {
     func start()
+    func coordinate(to coordinator: Coordinator)
 }
 
-class ApplicationCoordinator: Coordinator {
+extension Coordinator {
+    func coordinate(to coordinator: Coordinator) {
+        coordinator.start()
+    }
+}
+
+final class ApplicationCoordinator: Coordinator {
     let window: UIWindow
 
     init(window: UIWindow) {
@@ -19,10 +26,11 @@ class ApplicationCoordinator: Coordinator {
     }
 
     func start() {
-        //let viewModel = SigninViewModel()
-        //let viewController = SigninViewController(viewModel: viewModel)
-        let viewController = LoginViewController()
-        window.rootViewController = viewController
+        let navigationController = UINavigationController()
+        window.rootViewController = navigationController
         window.makeKeyAndVisible()
+        
+        let signinCoordinator = SigninCoordinator(navigationController: navigationController)
+        coordinate(to: signinCoordinator)
     }
 }
