@@ -10,6 +10,7 @@ target 'Calendr' do
 
   # Authentication
   pod 'FirebaseFirestore'
+  pod 'KeychainSwift', '~> 20.0'
   
   # Databinding
   pod 'RxSwift', '6.5.0'

@@ -11,7 +11,6 @@
 		188427AB04EE41F8FB4C2B49 /* Pods_Calendr_CalendrUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C99837731A5F6F1E66C52B33 /* Pods_Calendr_CalendrUITests.framework */; };
 		5CDCDBEE2829981900F0296E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CDCDBED2829981900F0296E /* AppDelegate.swift */; };
 		5CDCDBF02829981900F0296E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CDCDBEF2829981900F0296E /* SceneDelegate.swift */; };
-		5CDCDBF22829981900F0296E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CDCDBF12829981900F0296E /* LoginViewController.swift */; };
 		5CDCDBF72829982300F0296E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5CDCDBF62829982300F0296E /* Assets.xcassets */; };
 		5CDCDBFA2829982300F0296E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5CDCDBF82829982300F0296E /* LaunchScreen.storyboard */; };
 		5CDCDC052829982300F0296E /* CalendrTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CDCDC042829982300F0296E /* CalendrTests.swift */; };
@@ -21,6 +20,22 @@
 		5CDCDC25282A269D00F0296E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5CDCDC23282A269D00F0296E /* GoogleService-Info.plist */; };
 		5CDCDC26282A269D00F0296E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5CDCDC23282A269D00F0296E /* GoogleService-Info.plist */; };
 		5CDCDC33282A48D500F0296E /* ApplicationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CDCDC32282A48D500F0296E /* ApplicationCoordinator.swift */; };
+		5CDCDC37282A679D00F0296E /* SignupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CDCDC36282A679D00F0296E /* SignupViewModel.swift */; };
+		5CDCDC3A282A893000F0296E /* TextFieldStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CDCDC39282A893000F0296E /* TextFieldStatus.swift */; };
+		5CDCDC3E282A959300F0296E /* SigninViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CDCDC3D282A959300F0296E /* SigninViewModel.swift */; };
+		5CDCDC41282AA1A100F0296E /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CDCDC40282AA1A100F0296E /* String+Extensions.swift */; };
+		5CDCDC43282AC48200F0296E /* SigninViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CDCDC42282AC48200F0296E /* SigninViewController.swift */; };
+		5CDCDC45282ADBDB00F0296E /* Reactive+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CDCDC44282ADBDB00F0296E /* Reactive+Extensions.swift */; };
+		5CDCDC47282BB11F00F0296E /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CDCDC46282BB11F00F0296E /* SignupViewController.swift */; };
+		5CDCDC49282C1A5700F0296E /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CDCDC48282C1A5700F0296E /* UserModel.swift */; };
+		5CDCDC4C282C1BA000F0296E /* EventModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CDCDC4B282C1BA000F0296E /* EventModel.swift */; };
+		5CDCDC4F282C1CBB00F0296E /* UserManagementProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CDCDC4E282C1CBB00F0296E /* UserManagementProtocol.swift */; };
+		5CDCDC51282C1E7900F0296E /* UserManagementService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CDCDC50282C1E7900F0296E /* UserManagementService.swift */; };
+		5CDCDC53282CAB6400F0296E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CDCDC52282CAB6400F0296E /* Constants.swift */; };
+		5CDCDC55282CD16F00F0296E /* SigninCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CDCDC54282CD16F00F0296E /* SigninCoordinator.swift */; };
+		5CDCDC57282CD70B00F0296E /* EventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CDCDC56282CD70B00F0296E /* EventsViewController.swift */; };
+		5CDCDC5C282CD8B500F0296E /* EventsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CDCDC5B282CD8B500F0296E /* EventsViewModel.swift */; };
+		5CDCDC5E282CDA2F00F0296E /* EventsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CDCDC5D282CDA2F00F0296E /* EventsCoordinator.swift */; };
 		7B1634581B62883B22CD69D9 /* Pods_CalendrTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC2A9DB25EAC87C4DB635126 /* Pods_CalendrTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -47,7 +62,6 @@
 		5CDCDBEA2829981900F0296E /* Calendr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Calendr.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5CDCDBED2829981900F0296E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5CDCDBEF2829981900F0296E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		5CDCDBF12829981900F0296E /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		5CDCDBF62829982300F0296E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5CDCDBF92829982300F0296E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5CDCDBFB2829982300F0296E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -58,6 +72,22 @@
 		5CDCDC102829982300F0296E /* CalendrUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendrUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		5CDCDC23282A269D00F0296E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5CDCDC32282A48D500F0296E /* ApplicationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationCoordinator.swift; sourceTree = "<group>"; };
+		5CDCDC36282A679D00F0296E /* SignupViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewModel.swift; sourceTree = "<group>"; };
+		5CDCDC39282A893000F0296E /* TextFieldStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldStatus.swift; sourceTree = "<group>"; };
+		5CDCDC3D282A959300F0296E /* SigninViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigninViewModel.swift; sourceTree = "<group>"; };
+		5CDCDC40282AA1A100F0296E /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
+		5CDCDC42282AC48200F0296E /* SigninViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigninViewController.swift; sourceTree = "<group>"; };
+		5CDCDC44282ADBDB00F0296E /* Reactive+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Reactive+Extensions.swift"; sourceTree = "<group>"; };
+		5CDCDC46282BB11F00F0296E /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
+		5CDCDC48282C1A5700F0296E /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		5CDCDC4B282C1BA000F0296E /* EventModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventModel.swift; sourceTree = "<group>"; };
+		5CDCDC4E282C1CBB00F0296E /* UserManagementProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManagementProtocol.swift; sourceTree = "<group>"; };
+		5CDCDC50282C1E7900F0296E /* UserManagementService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManagementService.swift; sourceTree = "<group>"; };
+		5CDCDC52282CAB6400F0296E /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		5CDCDC54282CD16F00F0296E /* SigninCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigninCoordinator.swift; sourceTree = "<group>"; };
+		5CDCDC56282CD70B00F0296E /* EventsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsViewController.swift; sourceTree = "<group>"; };
+		5CDCDC5B282CD8B500F0296E /* EventsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsViewModel.swift; sourceTree = "<group>"; };
+		5CDCDC5D282CDA2F00F0296E /* EventsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsCoordinator.swift; sourceTree = "<group>"; };
 		74F123B081C3105CDB4C130F /* Pods-Calendr-CalendrUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Calendr-CalendrUITests.debug.xcconfig"; path = "Target Support Files/Pods-Calendr-CalendrUITests/Pods-Calendr-CalendrUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		7A30B1499342F0E3D77C6B7A /* Pods_Calendr.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Calendr.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		81331A76F7C52C63978FBE46 /* Pods-CalendrTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CalendrTests.debug.xcconfig"; path = "Target Support Files/Pods-CalendrTests/Pods-CalendrTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -130,9 +160,13 @@
 		5CDCDBEC2829981900F0296E /* Calendr */ = {
 			isa = PBXGroup;
 			children = (
+				5CDCDC4D282C1C9600F0296E /* Services */,
+				5CDCDC4A282C1A6500F0296E /* Models */,
+				5CDCDC3F282AA14B00F0296E /* Extensions */,
+				5CDCDC38282A891A00F0296E /* Enums */,
+				5CDCDC34282A671600F0296E /* Scenes */,
 				5CDCDC31282A48B900F0296E /* ApplicationCoordinator */,
 				5CDCDC27282A271E00F0296E /* Commons */,
-				5CDCDBF12829981900F0296E /* LoginViewController.swift */,
 				5CDCDBF62829982300F0296E /* Assets.xcassets */,
 				5CDCDBFB2829982300F0296E /* Info.plist */,
 				5CDCDC23282A269D00F0296E /* GoogleService-Info.plist */,
@@ -163,6 +197,7 @@
 				5CDCDBF82829982300F0296E /* LaunchScreen.storyboard */,
 				5CDCDBED2829981900F0296E /* AppDelegate.swift */,
 				5CDCDBEF2829981900F0296E /* SceneDelegate.swift */,
+				5CDCDC52282CAB6400F0296E /* Constants.swift */,
 			);
 			path = Commons;
 			sourceTree = "<group>";
@@ -171,8 +206,82 @@
 			isa = PBXGroup;
 			children = (
 				5CDCDC32282A48D500F0296E /* ApplicationCoordinator.swift */,
+				5CDCDC54282CD16F00F0296E /* SigninCoordinator.swift */,
+				5CDCDC5D282CDA2F00F0296E /* EventsCoordinator.swift */,
 			);
 			path = ApplicationCoordinator;
+			sourceTree = "<group>";
+		};
+		5CDCDC34282A671600F0296E /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				5CDCDC5A282CD75100F0296E /* Events */,
+				5CDCDC3C282A957C00F0296E /* Signin */,
+				5CDCDC35282A672200F0296E /* Signup */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		5CDCDC35282A672200F0296E /* Signup */ = {
+			isa = PBXGroup;
+			children = (
+				5CDCDC36282A679D00F0296E /* SignupViewModel.swift */,
+				5CDCDC46282BB11F00F0296E /* SignupViewController.swift */,
+			);
+			path = Signup;
+			sourceTree = "<group>";
+		};
+		5CDCDC38282A891A00F0296E /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+				5CDCDC39282A893000F0296E /* TextFieldStatus.swift */,
+			);
+			path = Enums;
+			sourceTree = "<group>";
+		};
+		5CDCDC3C282A957C00F0296E /* Signin */ = {
+			isa = PBXGroup;
+			children = (
+				5CDCDC3D282A959300F0296E /* SigninViewModel.swift */,
+				5CDCDC42282AC48200F0296E /* SigninViewController.swift */,
+			);
+			path = Signin;
+			sourceTree = "<group>";
+		};
+		5CDCDC3F282AA14B00F0296E /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				5CDCDC40282AA1A100F0296E /* String+Extensions.swift */,
+				5CDCDC44282ADBDB00F0296E /* Reactive+Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		5CDCDC4A282C1A6500F0296E /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				5CDCDC48282C1A5700F0296E /* UserModel.swift */,
+				5CDCDC4B282C1BA000F0296E /* EventModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		5CDCDC4D282C1C9600F0296E /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				5CDCDC4E282C1CBB00F0296E /* UserManagementProtocol.swift */,
+				5CDCDC50282C1E7900F0296E /* UserManagementService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		5CDCDC5A282CD75100F0296E /* Events */ = {
+			isa = PBXGroup;
+			children = (
+				5CDCDC56282CD70B00F0296E /* EventsViewController.swift */,
+				5CDCDC5B282CD8B500F0296E /* EventsViewModel.swift */,
+			);
+			path = Events;
 			sourceTree = "<group>";
 		};
 		FB15344B219959065A95C1E1 /* Pods */ = {
@@ -429,10 +538,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5CDCDBF22829981900F0296E /* LoginViewController.swift in Sources */,
+				5CDCDC5E282CDA2F00F0296E /* EventsCoordinator.swift in Sources */,
+				5CDCDC49282C1A5700F0296E /* UserModel.swift in Sources */,
+				5CDCDC3A282A893000F0296E /* TextFieldStatus.swift in Sources */,
+				5CDCDC47282BB11F00F0296E /* SignupViewController.swift in Sources */,
 				5CDCDBEE2829981900F0296E /* AppDelegate.swift in Sources */,
+				5CDCDC3E282A959300F0296E /* SigninViewModel.swift in Sources */,
+				5CDCDC53282CAB6400F0296E /* Constants.swift in Sources */,
+				5CDCDC45282ADBDB00F0296E /* Reactive+Extensions.swift in Sources */,
+				5CDCDC41282AA1A100F0296E /* String+Extensions.swift in Sources */,
+				5CDCDC37282A679D00F0296E /* SignupViewModel.swift in Sources */,
 				5CDCDBF02829981900F0296E /* SceneDelegate.swift in Sources */,
+				5CDCDC57282CD70B00F0296E /* EventsViewController.swift in Sources */,
 				5CDCDC33282A48D500F0296E /* ApplicationCoordinator.swift in Sources */,
+				5CDCDC4C282C1BA000F0296E /* EventModel.swift in Sources */,
+				5CDCDC51282C1E7900F0296E /* UserManagementService.swift in Sources */,
+				5CDCDC43282AC48200F0296E /* SigninViewController.swift in Sources */,
+				5CDCDC5C282CD8B500F0296E /* EventsViewModel.swift in Sources */,
+				5CDCDC55282CD16F00F0296E /* SigninCoordinator.swift in Sources */,
+				5CDCDC4F282C1CBB00F0296E /* UserManagementProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

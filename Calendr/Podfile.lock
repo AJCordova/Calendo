@@ -683,6 +683,7 @@ PODS:
     - gRPC-Core/Interface (= 1.44.0)
     - Libuv-gRPC (= 0.0.10)
   - gRPC-Core/Interface (1.44.0)
+  - KeychainSwift (20.0.0)
   - leveldb-library (1.22.1)
   - Libuv-gRPC (0.0.10):
     - Libuv-gRPC/Implementation (= 0.0.10)
@@ -706,6 +707,7 @@ PODS:
 
 DEPENDENCIES:
   - FirebaseFirestore
+  - KeychainSwift (~> 20.0)
   - RxCocoa (= 6.5.0)
   - RxSwift (= 6.5.0)
   - SnapKit (~> 5.6.0)
@@ -721,6 +723,7 @@ SPEC REPOS:
     - GoogleUtilities
     - "gRPC-C++"
     - gRPC-Core
+    - KeychainSwift
     - leveldb-library
     - Libuv-gRPC
     - nanopb
@@ -740,6 +743,7 @@ SPEC CHECKSUMS:
   GoogleUtilities: e0913149f6b0625b553d70dae12b49fc62914fd1
   "gRPC-C++": 9675f953ace2b3de7c506039d77be1f2e77a8db2
   gRPC-Core: 943e491cb0d45598b0b0eb9e910c88080369290b
+  KeychainSwift: 0ce6a4d13f7228054d1a71bb1b500448fb2ab837
   leveldb-library: 50c7b45cbd7bf543c81a468fe557a16ae3db8729
   Libuv-gRPC: 55e51798e14ef436ad9bc45d12d43b77b49df378
   nanopb: a0ba3315591a9ae0a16a309ee504766e90db0c96
@@ -749,6 +753,6 @@ SPEC CHECKSUMS:
   RxSwift: 5710a9e6b17f3c3d6e40d6e559b9fa1e813b2ef8
   SnapKit: e01d52ebb8ddbc333eefe2132acf85c8227d9c25
 
-PODFILE CHECKSUM: 028f54b96165a21928c50503b26cf0c88a6c5769
+PODFILE CHECKSUM: 291043d279bade7d00fa4a625f3624406ea5aad2
 
 COCOAPODS: 1.11.2
