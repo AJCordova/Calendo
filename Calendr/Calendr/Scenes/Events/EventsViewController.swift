@@ -8,14 +8,16 @@
 import UIKit
 import EventKitUI
 import SnapKit
+import RxSwift
 
 class EventsViewController: UIViewController, EKEventEditViewDelegate, UINavigationControllerDelegate {
-    let viewModel: EventsViewModel
+    var viewModel: EventsViewModelTypes
     
     lazy var viewTitle: UILabel = UILabel()
     lazy var addEventButton: UIButton = UIButton()
+    lazy var disposeBag = DisposeBag()
     
-    init(viewModel: EventsViewModel) {
+    init(viewModel: EventsViewModelTypes) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
@@ -40,6 +42,7 @@ extension EventsViewController {
     func setupViews() {
         setupViewTitle()
         setupEventsList()
+        setupEventListViewCell()
         setupAddEventButton()
     }
     
@@ -55,9 +58,9 @@ extension EventsViewController {
         }
     }
     
-    func setupEventsList() {
-        
-    }
+    func setupEventsList() { }
+    
+    func setupEventListViewCell() { }
     
     func setupAddEventButton() {
         addEventButton.backgroundColor = .systemBlue
@@ -73,32 +76,14 @@ extension EventsViewController {
     }
     
     @objc func addNewEvent() {
-        switch EKEventStore.authorizationStatus(for: .event) {
-        case .notDetermined:
-            let eventStore = EKEventStore()
-            eventStore.requestAccess(to: .event) { (granted, error) in
-                if granted {
-                    DispatchQueue.main.async {
-                        self.showEventViewController()
-                    }
-                }
-            }
-        case .authorized:
-            DispatchQueue.main.async {
-                self.showEventViewController()
-            }
-        case .restricted, .denied:
-            let eventStore = EKEventStore()
-            eventStore.requestAccess(to: .event) { (granted, error) in
-                if granted {
-                    DispatchQueue.main.async {
-                        self.showEventViewController()
-                    }
-                }
-            }
-         default:
-            break
-        }
+        let eventVC = EKEventEditViewController()
+        eventVC.eventStore = viewModel.outputs.getEventStore()
+        eventVC.editViewDelegate = self
+        
+        let event = EKEvent(eventStore: eventVC.eventStore)
+        event.startDate = Date()
+        
+        present(eventVC, animated: true, completion: nil)
     }
     
     private func showEventViewController() {
@@ -117,12 +102,18 @@ extension EventsViewController {
 // MARK: Bindings
 extension EventsViewController {
     func setupBindings() {
-        // bindings here
+        viewModel.outputs.events
+            .subscribe(onNext: { event in
+                print(event)
+            })
+            .disposed(by: disposeBag)
     }
 }
 
 extension EventsViewController {
     func eventEditViewController(_ controller: EKEventEditViewController, didCompleteWith action: EKEventEditViewAction) {
         dismiss(animated: true, completion: nil)
+        print("Dismissed modal")
+        viewModel.outputs.loadEvents()
     }
 }
