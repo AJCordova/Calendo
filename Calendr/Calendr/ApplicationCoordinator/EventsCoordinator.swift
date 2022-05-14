@@ -8,9 +8,11 @@
 import Foundation
 import UIKit
 
+protocol EventsCoordinatorDelegate: AnyObject {
+}
 
 
-final class EventsCoordinator: Coordinator {
+final class EventsCoordinator: Coordinator, EventsCoordinatorDelegate {
     let navigationController: UINavigationController
     
     init(navigationController: UINavigationController) {
@@ -18,8 +20,9 @@ final class EventsCoordinator: Coordinator {
     }
     
     func start() {
-        let viewModel = EventsViewModel()
+        let viewModel = EventsViewModel(coordinator: self)
         let viewController = EventsViewController(viewModel: viewModel)
         navigationController.pushViewController(viewController, animated: true)
     }
 }
+
