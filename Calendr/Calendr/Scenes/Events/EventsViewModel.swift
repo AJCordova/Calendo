@@ -18,7 +18,7 @@ protocol EventsViewModelInputs {
 }
 
 protocol EventsViewModelOutputs {
-    func loadEvents(for date: Date)
+    func loadEvents()
     func getEventStore() -> EKEventStore
     var events: PublishSubject<[EKEvent]> { get }
     var targetDate: BehaviorRelay<Date> { get }
@@ -47,8 +47,8 @@ class EventsViewModel: EventsViewModelTypes, EventsViewModelInputs, EventsViewMo
         requestCalendarAccess()
         
         targetDate
-            .bind(onNext: { date in
-                self.loadEvents(for: date)
+            .bind(onNext: { _ in
+                self.loadEvents()
             })
             .disposed(by: disposeBag)
     }
@@ -61,7 +61,7 @@ class EventsViewModel: EventsViewModelTypes, EventsViewModelInputs, EventsViewMo
         eventStore.requestAccess(to: .event) { [self] (granted, error) in
             if granted {
                 DispatchQueue.main.async {
-                    loadEvents(for: Date())
+                    loadEvents()
                 }
             }
         }
@@ -71,10 +71,10 @@ class EventsViewModel: EventsViewModelTypes, EventsViewModelInputs, EventsViewMo
         targetDate.accept(date)
     }
     
-    // Retrieve events from ALL calendars.
-    func loadEvents(for date: Date) {
-        let startDate = date
-        let endDate = date
+    func loadEvents() {
+        let calendar = Calendar.current
+        let startDate = calendar.startOfDay(for: targetDate.value)
+        let endDate = startDate.advanced(by: TimeInterval.day)
         let predicate = eventStore.predicateForEvents(withStart: startDate, end: endDate, calendars: nil)
         
         events.onNext(eventStore.events(matching: predicate))
@@ -82,10 +82,6 @@ class EventsViewModel: EventsViewModelTypes, EventsViewModelInputs, EventsViewMo
     
     func deleteEvent() {
         print(events)
-    }
-    
-    func editEvent(event: EKEvent) {
-        //self.coordinator.editEvent(event: <#EKEvent#>)
     }
     
     func setTargetEvent(event: EKEvent) {

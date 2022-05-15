@@ -68,8 +68,6 @@ extension EventsViewController {
         datePicker.locale = .current
         datePicker.datePickerMode = .date
         datePicker.preferredDatePickerStyle = .inline
-        datePicker.addTarget(self, action: #selector(sendDateSelection), for: .valueChanged)
-        
         view.addSubview(datePicker)
         
         datePicker.snp.makeConstraints { make in
@@ -112,10 +110,6 @@ extension EventsViewController {
         event.startDate = Date()
         
         present(eventVC, animated: true, completion: nil)
-    }
-    
-    @objc func sendDateSelection() {
-        
     }
     
     private func editEventViewController(for event: EKEvent?) {
@@ -164,9 +158,10 @@ extension EventsViewController {
         datePicker.rx.value.changed.asObservable()
             .subscribe( { event in
                 if let date = event.element {
-                    viewModel.inputs.setTargetDate(event: )
+                    self.viewModel.inputs.setTargetDate(date: date)
                 }
             })
+            .disposed(by: disposeBag)
     }
 }
 
