@@ -141,13 +141,13 @@ extension EventsViewController {
 extension EventsViewController {
     func setupBindings() {
         viewModel.outputs.events
-            .bind(to: tableView.rx.items) {(tableView, row, event) -> EventTableViewCell in
+            .bind(to: tableView.rx.items) { [self](tableView, row, event) -> EventTableViewCell in
                 let cell = tableView.dequeueReusableCell(withIdentifier: self.eventsCellID,
                                                         for: IndexPath.init(row: row, section: 0)) as! EventTableViewCell
                 
-                cell.eventDate.text = "Some Date here"
+                cell.eventDate.text = dateFormatter(date: event.startDate)
                 cell.eventTitle.text = event.title
-                cell.eventTime.text = "Some time here"
+                cell.eventTime.text = timeFormatter(event: event)
                 return cell
             }
             .disposed(by: disposeBag)
@@ -168,5 +168,23 @@ extension EventsViewController {
 extension EventsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 70
+    }
+    
+    private func dateFormatter(date: Date) -> String {
+        let df = DateFormatter()
+        df.dateFormat = "MMMM dd"
+        return df.string(from: date)
+    }
+    
+    private func timeFormatter(event: EKEvent) -> String {
+        if !event.isAllDay {
+            let df = DateFormatter()
+            df.dateFormat = "hh:mm a"
+            df.amSymbol = "AM"
+            df.pmSymbol = "PM"
+            return df.string(from: event.startDate) + " - " + df.string(from: event.endDate)
+        }
+        
+        return "All Day Event"
     }
 }
