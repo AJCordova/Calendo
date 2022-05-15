@@ -57,7 +57,7 @@ extension EventsViewController {
         view.addSubview(viewTitle)
         
         viewTitle.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(80)
+            make.top.equalToSuperview().offset(100)
             make.left.right.equalToSuperview().inset(20)
             make.height.equalTo(20)
         }
@@ -128,6 +128,7 @@ extension EventsViewController {
 // MARK: Bindings
 extension EventsViewController {
     func setupBindings() {
+        
         viewModel.outputs.events
             .bind(to: tableView.rx.items) { [self](tableView, row, event) -> EventTableViewCell in
                 let cell = tableView.dequeueReusableCell(withIdentifier: self.eventsCellID,
