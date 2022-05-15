@@ -9,7 +9,6 @@ import UIKit
 import EventKitUI
 import SnapKit
 import RxSwift
-//import RxDataSources
 
 class EventsViewController: UIViewController, EKEventEditViewDelegate, UINavigationControllerDelegate {
     var viewModel: EventsViewModelTypes
@@ -43,6 +42,7 @@ class EventsViewController: UIViewController, EKEventEditViewDelegate, UINavigat
     }
 }
 
+// MARK: Setup views
 extension EventsViewController {
     func setupViews() {
         setupViewTitle()

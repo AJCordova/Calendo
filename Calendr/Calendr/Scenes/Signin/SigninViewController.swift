@@ -45,6 +45,7 @@ class SigninViewController: UIViewController {
     }
 }
 
+// MARK: Views set-up
 extension SigninViewController {
     func setupViews() {
         setupEmailTextField()
@@ -146,6 +147,7 @@ extension SigninViewController {
     }
 }
 
+// MARK: Bindings
 extension SigninViewController {
     private func setupBindings() {
         emailTextField.rx.text.orEmpty.distinctUntilChanged()

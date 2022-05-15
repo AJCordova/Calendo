@@ -15,7 +15,6 @@ target 'Calendr' do
   # Databinding
   pod 'RxSwift', '6.5.0'
   pod 'RxCocoa', '6.5.0'
-  pod 'RxDataSources', '~> 5.0'
 
   target 'CalendrTests' do
     inherit! :search_paths

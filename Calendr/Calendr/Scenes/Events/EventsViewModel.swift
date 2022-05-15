@@ -11,10 +11,8 @@ import RxSwift
 import RxRelay
 
 protocol EventsViewModelInputs {
-    func deleteEvent()
     func setTargetDate(date: Date)
     func setTargetEvent(event: EKEvent)
-    
 }
 
 protocol EventsViewModelOutputs {
@@ -78,10 +76,6 @@ class EventsViewModel: EventsViewModelTypes, EventsViewModelInputs, EventsViewMo
         let predicate = eventStore.predicateForEvents(withStart: startDate, end: endDate, calendars: nil)
         
         events.onNext(eventStore.events(matching: predicate))
-    }
-    
-    func deleteEvent() {
-        print(events)
     }
     
     func setTargetEvent(event: EKEvent) {

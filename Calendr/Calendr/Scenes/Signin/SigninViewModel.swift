@@ -35,15 +35,15 @@ class SigninViewModel: SigninViewModelInputs, SigninViewModelOutputs, SigninView
     var invalidEmailMessage: PublishRelay<String> = PublishRelay()
     var invalidPasswordMessage: PublishRelay<String> = PublishRelay()
     
-    var coordinator: SigninCoordinatorDelegate?
-    
+    private var coordinator: SigninCoordinatorDelegate?
     private var disposeBag = DisposeBag()
     private var emailDidChangeProperty = PublishSubject<String>()
     private var passwordDidChangeProperty = PublishSubject<String>()
     private var shouldProceedToEvents = PublishSubject<Bool>()
     private var userManager: UserManagementProtocol
     
-    init() {
+    init(coordinator: SigninCoordinatorDelegate) {
+        self.coordinator = coordinator
         self.userManager = UserManagementService()
         
         emailDidChangeProperty

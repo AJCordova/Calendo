@@ -20,14 +20,12 @@ final class SigninCoordinator: Coordinator {
     }
     
     func start() {
-        let viewModel = SigninViewModel()
-        viewModel.coordinator = self
+        let viewModel = SigninViewModel(coordinator: self)
         let viewController = SigninViewController(viewModel: viewModel)
         navigationController.pushViewController(viewController, animated: true)
     }
 }
 
-// MARK: Nav controls
 extension SigninCoordinator: SigninCoordinatorDelegate {
     func goToEvents() {
         let eventsCoordinator = EventsCoordinator(navigationController: navigationController)
