@@ -8,17 +8,21 @@
 import Foundation
 import EventKit
 import RxSwift
+import RxRelay
 
 protocol EventsViewModelInputs {
     func deleteEvent()
-    func editEvent(event: EKEvent)
+    func setTargetDate(date: Date)
+    func setTargetEvent(event: EKEvent)
     
 }
 
 protocol EventsViewModelOutputs {
-    func loadEvents()
+    func loadEvents(for date: Date)
     func getEventStore() -> EKEventStore
     var events: PublishSubject<[EKEvent]> { get }
+    var targetDate: BehaviorRelay<Date> { get }
+    var targetEvent: PublishRelay<EKEvent> { get }
 }
 
 protocol EventsViewModelTypes {
@@ -31,14 +35,22 @@ class EventsViewModel: EventsViewModelTypes, EventsViewModelInputs, EventsViewMo
     var outputs: EventsViewModelOutputs { return self }
     
     var events: PublishSubject<[EKEvent]> = PublishSubject<[EKEvent]>()
+    var targetDate: BehaviorRelay<Date> = BehaviorRelay<Date>(value: Date())
+    var targetEvent: PublishRelay<EKEvent> = PublishRelay()
     
     private let eventStore = EKEventStore()
-    
+    private let disposeBag = DisposeBag()
     private var coordinator: EventsCoordinatorDelegate
     
     init(coordinator: EventsCoordinatorDelegate) {
         self.coordinator = coordinator
         requestCalendarAccess()
+        
+        targetDate
+            .bind(onNext: { date in
+                self.loadEvents(for: date)
+            })
+            .disposed(by: disposeBag)
     }
     
     func getEventStore() -> EKEventStore {
@@ -49,17 +61,21 @@ class EventsViewModel: EventsViewModelTypes, EventsViewModelInputs, EventsViewMo
         eventStore.requestAccess(to: .event) { [self] (granted, error) in
             if granted {
                 DispatchQueue.main.async {
-                    loadEvents()
+                    loadEvents(for: Date())
                 }
             }
         }
     }
     
+    func setTargetDate(date: Date) {
+        targetDate.accept(date)
+    }
+    
     // Retrieve events from ALL calendars.
-    func loadEvents() {
-        let weekFromNow = Date().advanced(by: TimeInterval.week)
-        let weekBefore = Date(timeIntervalSinceNow: -7*24*3600)
-        let predicate = eventStore.predicateForEvents(withStart: weekBefore, end: weekFromNow, calendars: nil)
+    func loadEvents(for date: Date) {
+        let startDate = date
+        let endDate = date
+        let predicate = eventStore.predicateForEvents(withStart: startDate, end: endDate, calendars: nil)
         
         events.onNext(eventStore.events(matching: predicate))
     }
@@ -70,5 +86,9 @@ class EventsViewModel: EventsViewModelTypes, EventsViewModelInputs, EventsViewMo
     
     func editEvent(event: EKEvent) {
         //self.coordinator.editEvent(event: <#EKEvent#>)
+    }
+    
+    func setTargetEvent(event: EKEvent) {
+        targetEvent.accept(event)
     }
 }

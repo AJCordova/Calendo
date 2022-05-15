@@ -48,7 +48,6 @@ extension EventsViewController {
         setupViewTitle()
         setupDatePicker()
         setupEventsList()
-        setupEventListViewCell()
         setupAddEventButton()
     }
     
@@ -58,7 +57,7 @@ extension EventsViewController {
         view.addSubview(viewTitle)
         
         viewTitle.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(100)
+            make.top.equalToSuperview().offset(80)
             make.left.right.equalToSuperview().inset(20)
             make.height.equalTo(20)
         }
@@ -70,29 +69,26 @@ extension EventsViewController {
         datePicker.datePickerMode = .date
         datePicker.preferredDatePickerStyle = .inline
         datePicker.addTarget(self, action: #selector(sendDateSelection), for: .valueChanged)
+        
         view.addSubview(datePicker)
         
         datePicker.snp.makeConstraints { make in
             make.top.equalTo(viewTitle.snp.bottom).offset(5)
             make.left.right.equalToSuperview().inset(20)
-            make.height.equalTo(300)
+            make.height.equalTo(340)
         }
     }
     
     func setupEventsList() {
         tableView.register(UINib.init(nibName: "EventViewCell", bundle: nil), forCellReuseIdentifier: eventsCellID)
-        
-        tableView.tableFooterView = UIView()
         view.addSubview(tableView)
         
         tableView.snp.makeConstraints { make in
-            make.top.equalTo(datePicker.snp.bottom)
+            make.top.equalTo(datePicker.snp.bottom).offset(-20)
             make.left.right.equalToSuperview()
-            make.height.equalTo(280)
+            make.height.equalTo(260)
         }
     }
-    
-    func setupEventListViewCell() { }
     
     func setupAddEventButton() {
         addEventButton.backgroundColor = .systemBlue
@@ -119,19 +115,17 @@ extension EventsViewController {
     }
     
     @objc func sendDateSelection() {
-        datePicker.rx.date
-            .bind(to: viewModel.outputs.targetDate)
-            .disposed(by: disposeBag)
+        
     }
     
-    private func showEventViewController() {
+    private func editEventViewController(for event: EKEvent?) {
         let eventVC = EKEventEditViewController()
         eventVC.editViewDelegate = self
-        eventVC.eventStore = EKEventStore()
+        eventVC.eventStore = viewModel.outputs.getEventStore()
         
-        let event = EKEvent(eventStore: eventVC.eventStore)
-        event.title = "Hello calendar!"
-        event.startDate = Date()
+        if let event = event {
+            eventVC.event = event
+        }
         
         present(eventVC, animated: true)
     }
@@ -152,22 +146,40 @@ extension EventsViewController {
             }
             .disposed(by: disposeBag)
         
+        viewModel.outputs.targetEvent
+            .subscribe(onNext: { event in
+                self.editEventViewController(for: event)
+            })
+            .disposed(by: disposeBag)
+        
         tableView.rx.setDelegate(self)
             .disposed(by: disposeBag)
+        
+        tableView.rx.modelSelected(EKEvent.self)
+            .subscribe(onNext: { event in
+                self.viewModel.inputs.setTargetEvent(event: event)
+            })
+            .disposed(by: disposeBag)
+        
+        datePicker.rx.value.changed.asObservable()
+            .subscribe( { event in
+                if let date = event.element {
+                    viewModel.inputs.setTargetDate(event: )
+                }
+            })
     }
 }
 
 extension EventsViewController {
     func eventEditViewController(_ controller: EKEventEditViewController, didCompleteWith action: EKEventEditViewAction) {
         dismiss(animated: true, completion: nil)
-        print("Dismissed modal")
         viewModel.outputs.loadEvents()
     }
 }
 
 extension EventsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 70
+        return 65
     }
     
     private func dateFormatter(date: Date) -> String {
