@@ -37,6 +37,9 @@
 		5CDCDC5C282CD8B500F0296E /* EventsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CDCDC5B282CD8B500F0296E /* EventsViewModel.swift */; };
 		5CDCDC5E282CDA2F00F0296E /* EventsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CDCDC5D282CDA2F00F0296E /* EventsCoordinator.swift */; };
 		5CDCDC64282E002900F0296E /* TimeInterval+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CDCDC63282E002900F0296E /* TimeInterval+Extensions.swift */; };
+		5CDCDC70283021D100F0296E /* UITableViewCell+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CDCDC6F283021D100F0296E /* UITableViewCell+Extensions.swift */; };
+		5CDCDC722830AF3400F0296E /* EventViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5CDCDC712830AF3400F0296E /* EventViewCell.xib */; };
+		5CDCDC742830D7E300F0296E /* EventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CDCDC732830D7E200F0296E /* EventTableViewCell.swift */; };
 		7B1634581B62883B22CD69D9 /* Pods_CalendrTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC2A9DB25EAC87C4DB635126 /* Pods_CalendrTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -90,6 +93,9 @@
 		5CDCDC5B282CD8B500F0296E /* EventsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsViewModel.swift; sourceTree = "<group>"; };
 		5CDCDC5D282CDA2F00F0296E /* EventsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsCoordinator.swift; sourceTree = "<group>"; };
 		5CDCDC63282E002900F0296E /* TimeInterval+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TimeInterval+Extensions.swift"; sourceTree = "<group>"; };
+		5CDCDC6F283021D100F0296E /* UITableViewCell+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+Extensions.swift"; sourceTree = "<group>"; };
+		5CDCDC712830AF3400F0296E /* EventViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EventViewCell.xib; sourceTree = "<group>"; };
+		5CDCDC732830D7E200F0296E /* EventTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventTableViewCell.swift; sourceTree = "<group>"; };
 		74F123B081C3105CDB4C130F /* Pods-Calendr-CalendrUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Calendr-CalendrUITests.debug.xcconfig"; path = "Target Support Files/Pods-Calendr-CalendrUITests/Pods-Calendr-CalendrUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		7A30B1499342F0E3D77C6B7A /* Pods_Calendr.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Calendr.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		81331A76F7C52C63978FBE46 /* Pods-CalendrTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CalendrTests.debug.xcconfig"; path = "Target Support Files/Pods-CalendrTests/Pods-CalendrTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -256,6 +262,7 @@
 				5CDCDC40282AA1A100F0296E /* String+Extensions.swift */,
 				5CDCDC44282ADBDB00F0296E /* Reactive+Extensions.swift */,
 				5CDCDC63282E002900F0296E /* TimeInterval+Extensions.swift */,
+				5CDCDC6F283021D100F0296E /* UITableViewCell+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -281,10 +288,20 @@
 		5CDCDC5A282CD75100F0296E /* Events */ = {
 			isa = PBXGroup;
 			children = (
+				5CDCDC6B28300D5600F0296E /* Components */,
 				5CDCDC56282CD70B00F0296E /* EventsViewController.swift */,
 				5CDCDC5B282CD8B500F0296E /* EventsViewModel.swift */,
 			);
 			path = Events;
+			sourceTree = "<group>";
+		};
+		5CDCDC6B28300D5600F0296E /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				5CDCDC712830AF3400F0296E /* EventViewCell.xib */,
+				5CDCDC732830D7E200F0296E /* EventTableViewCell.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 		FB15344B219959065A95C1E1 /* Pods */ = {
@@ -412,6 +429,7 @@
 				5CDCDBFA2829982300F0296E /* LaunchScreen.storyboard in Resources */,
 				5CDCDC24282A269D00F0296E /* GoogleService-Info.plist in Resources */,
 				5CDCDBF72829982300F0296E /* Assets.xcassets in Resources */,
+				5CDCDC722830AF3400F0296E /* EventViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -548,10 +566,12 @@
 				5CDCDBEE2829981900F0296E /* AppDelegate.swift in Sources */,
 				5CDCDC3E282A959300F0296E /* SigninViewModel.swift in Sources */,
 				5CDCDC53282CAB6400F0296E /* Constants.swift in Sources */,
+				5CDCDC70283021D100F0296E /* UITableViewCell+Extensions.swift in Sources */,
 				5CDCDC64282E002900F0296E /* TimeInterval+Extensions.swift in Sources */,
 				5CDCDC45282ADBDB00F0296E /* Reactive+Extensions.swift in Sources */,
 				5CDCDC41282AA1A100F0296E /* String+Extensions.swift in Sources */,
 				5CDCDC37282A679D00F0296E /* SignupViewModel.swift in Sources */,
+				5CDCDC742830D7E300F0296E /* EventTableViewCell.swift in Sources */,
 				5CDCDBF02829981900F0296E /* SceneDelegate.swift in Sources */,
 				5CDCDC57282CD70B00F0296E /* EventsViewController.swift in Sources */,
 				5CDCDC33282A48D500F0296E /* ApplicationCoordinator.swift in Sources */,
