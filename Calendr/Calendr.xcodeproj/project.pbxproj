@@ -28,7 +28,6 @@
 		5CDCDC45282ADBDB00F0296E /* Reactive+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CDCDC44282ADBDB00F0296E /* Reactive+Extensions.swift */; };
 		5CDCDC47282BB11F00F0296E /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CDCDC46282BB11F00F0296E /* SignupViewController.swift */; };
 		5CDCDC49282C1A5700F0296E /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CDCDC48282C1A5700F0296E /* UserModel.swift */; };
-		5CDCDC4C282C1BA000F0296E /* EventModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CDCDC4B282C1BA000F0296E /* EventModel.swift */; };
 		5CDCDC4F282C1CBB00F0296E /* UserManagementProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CDCDC4E282C1CBB00F0296E /* UserManagementProtocol.swift */; };
 		5CDCDC51282C1E7900F0296E /* UserManagementService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CDCDC50282C1E7900F0296E /* UserManagementService.swift */; };
 		5CDCDC53282CAB6400F0296E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CDCDC52282CAB6400F0296E /* Constants.swift */; };
@@ -83,7 +82,6 @@
 		5CDCDC44282ADBDB00F0296E /* Reactive+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Reactive+Extensions.swift"; sourceTree = "<group>"; };
 		5CDCDC46282BB11F00F0296E /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		5CDCDC48282C1A5700F0296E /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
-		5CDCDC4B282C1BA000F0296E /* EventModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventModel.swift; sourceTree = "<group>"; };
 		5CDCDC4E282C1CBB00F0296E /* UserManagementProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManagementProtocol.swift; sourceTree = "<group>"; };
 		5CDCDC50282C1E7900F0296E /* UserManagementService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManagementService.swift; sourceTree = "<group>"; };
 		5CDCDC52282CAB6400F0296E /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -268,7 +266,6 @@
 			isa = PBXGroup;
 			children = (
 				5CDCDC48282C1A5700F0296E /* UserModel.swift */,
-				5CDCDC4B282C1BA000F0296E /* EventModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -571,7 +568,6 @@
 				5CDCDBF02829981900F0296E /* SceneDelegate.swift in Sources */,
 				5CDCDC57282CD70B00F0296E /* EventsViewController.swift in Sources */,
 				5CDCDC33282A48D500F0296E /* ApplicationCoordinator.swift in Sources */,
-				5CDCDC4C282C1BA000F0296E /* EventModel.swift in Sources */,
 				5CDCDC51282C1E7900F0296E /* UserManagementService.swift in Sources */,
 				5CDCDC43282AC48200F0296E /* SigninViewController.swift in Sources */,
 				5CDCDC5C282CD8B500F0296E /* EventsViewModel.swift in Sources */,
