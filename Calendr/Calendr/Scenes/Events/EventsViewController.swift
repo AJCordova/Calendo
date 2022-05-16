@@ -11,7 +11,7 @@ import SnapKit
 import RxSwift
 
 class EventsViewController: UIViewController, EKEventEditViewDelegate, UINavigationControllerDelegate {
-    var viewModel: EventsViewModelTypes
+    private var viewModel: EventsViewModelTypes
     
     lazy var viewTitle: UILabel = UILabel()
     lazy var addEventButton: UIButton = UIButton()
