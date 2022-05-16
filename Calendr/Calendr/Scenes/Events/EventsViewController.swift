@@ -92,7 +92,6 @@ extension EventsViewController {
         addEventButton.backgroundColor = .systemBlue
         addEventButton.setTitle("Add Event", for: .normal)
         addEventButton.layer.cornerRadius = 9.0
-        addEventButton.addTarget(self, action: #selector(self.addNewEvent), for: .touchUpInside)
         view.addSubview(addEventButton)
         
         addEventButton.snp.makeConstraints { make in
@@ -101,7 +100,7 @@ extension EventsViewController {
         }
     }
     
-    @objc func addNewEvent() {
+    private func addNewEvent() {
         let eventVC = EKEventEditViewController()
         eventVC.eventStore = viewModel.outputs.getEventStore()
         eventVC.editViewDelegate = self
@@ -163,6 +162,11 @@ extension EventsViewController {
                 }
             })
             .disposed(by: disposeBag)
+        
+        addEventButton.rx.tap.bind {
+            self.addNewEvent()
+        }
+        .disposed(by: disposeBag)
     }
 }
 
