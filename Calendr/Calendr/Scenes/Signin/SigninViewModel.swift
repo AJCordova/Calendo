@@ -12,6 +12,7 @@ protocol SigninViewModelInputs {
     func emailDidChange(email: String)
     func passwordDidChange(password: String)
     func signinUser(email: String, password: String)
+    func signupUser()
 }
 
 protocol SigninViewModelOutputs {
@@ -35,8 +36,8 @@ class SigninViewModel: SigninViewModelInputs, SigninViewModelOutputs, SigninView
     var invalidEmailMessage: PublishRelay<String> = PublishRelay()
     var invalidPasswordMessage: PublishRelay<String> = PublishRelay()
     
-    private var coordinator: SigninCoordinatorDelegate?
     private var disposeBag = DisposeBag()
+    private var coordinator: SigninCoordinatorDelegate
     private var emailDidChangeProperty = PublishSubject<String>()
     private var passwordDidChangeProperty = PublishSubject<String>()
     private var shouldProceedToEvents = PublishSubject<Bool>()
@@ -87,10 +88,9 @@ class SigninViewModel: SigninViewModelInputs, SigninViewModelOutputs, SigninView
         shouldProceedToEvents
             .filter { $0 == true }
             .bind(onNext: { _ in
-                self.coordinator?.goToEvents()
+                self.coordinator.goToEvents()
             })
             .disposed(by: disposeBag)
-            
     }
     
     func emailDidChange(email: String) {
@@ -103,6 +103,10 @@ class SigninViewModel: SigninViewModelInputs, SigninViewModelOutputs, SigninView
     
     func signinUser(email: String, password: String) {
         retrieveUser(email: email, password: password)
+    }
+    
+    func signupUser() {
+        coordinator.goToSignup()
     }
     
     private func retrieveUser(email: String, password: String) {
