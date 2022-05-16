@@ -141,7 +141,6 @@ extension SignupViewController {
         signupButton.setTitle("Sign up", for: .normal)
         signupButton.layer.cornerRadius = 9.0
         signupButton.isEnabled = false
-        signupButton.addTarget(self, action: #selector(self.signupUser), for: .touchUpInside)
         view.addSubview(signupButton)
 
         signupButton.snp.makeConstraints { make in
@@ -154,21 +153,12 @@ extension SignupViewController {
         signinButton.backgroundColor = .systemBlue
         signinButton.setTitle("Sign in", for: .normal)
         signinButton.layer.cornerRadius = 9.0
-        signinButton.addTarget(self, action: #selector(self.signinUser), for: .touchUpInside)
         view.addSubview(signinButton)
         
         signinButton.snp.makeConstraints { make in
             make.top.equalTo(signupButton.snp.bottom).offset(20)
             make.left.right.equalToSuperview().inset(50)
         }
-    }
-    
-    @objc private func signinUser() {
-        viewModel.inputs.goToSignin()
-    }
-    
-    @objc private func signupUser() {
-        viewModel.inputs.submitRegistration(email: emailTextField.text!, hash: passwordTextField.text!.base64Encoded()!)
     }
 }
 
@@ -204,6 +194,16 @@ extension SignupViewController {
                 }
             })
             .disposed(by: disposeBag)
+        
+        signinButton.rx.tap.bind {
+            self.viewModel.inputs.goToSignin()
+        }
+        .disposed(by: disposeBag)
+        
+        signupButton.rx.tap.bind { [self] in
+            viewModel.inputs.submitRegistration(email: self.emailTextField.text!, hash: self.passwordTextField.text!.base64Encoded()!)
+        }
+        .disposed(by: disposeBag)
         
         viewModel.outputs.isEmailValid.map { $0.borderColor }
             .bind(to: emailTextField.rx.borderColor)
