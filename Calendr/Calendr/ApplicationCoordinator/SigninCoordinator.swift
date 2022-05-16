@@ -10,6 +10,7 @@ import UIKit
 
 protocol SigninCoordinatorDelegate: AnyObject {
     func goToEvents()
+    func goToSignup()
 }
 
 final class SigninCoordinator: Coordinator {
@@ -30,5 +31,10 @@ extension SigninCoordinator: SigninCoordinatorDelegate {
     func goToEvents() {
         let eventsCoordinator = EventsCoordinator(navigationController: navigationController)
         coordinate(to: eventsCoordinator)
+    }
+    
+    func goToSignup() {
+        let signupCoordinator = SignupCoordinator(navigationController: navigationController)
+        coordinate(to: signupCoordinator)
     }
 }

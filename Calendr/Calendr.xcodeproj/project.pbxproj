@@ -38,6 +38,7 @@
 		5CDCDC64282E002900F0296E /* TimeInterval+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CDCDC63282E002900F0296E /* TimeInterval+Extensions.swift */; };
 		5CDCDC722830AF3400F0296E /* EventViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5CDCDC712830AF3400F0296E /* EventViewCell.xib */; };
 		5CDCDC742830D7E300F0296E /* EventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CDCDC732830D7E200F0296E /* EventTableViewCell.swift */; };
+		5CFCBB4728316A31001223CE /* SignupCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CFCBB4628316A31001223CE /* SignupCoordinator.swift */; };
 		7B1634581B62883B22CD69D9 /* Pods_CalendrTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC2A9DB25EAC87C4DB635126 /* Pods_CalendrTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -92,6 +93,7 @@
 		5CDCDC63282E002900F0296E /* TimeInterval+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TimeInterval+Extensions.swift"; sourceTree = "<group>"; };
 		5CDCDC712830AF3400F0296E /* EventViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EventViewCell.xib; sourceTree = "<group>"; };
 		5CDCDC732830D7E200F0296E /* EventTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventTableViewCell.swift; sourceTree = "<group>"; };
+		5CFCBB4628316A31001223CE /* SignupCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupCoordinator.swift; sourceTree = "<group>"; };
 		74F123B081C3105CDB4C130F /* Pods-Calendr-CalendrUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Calendr-CalendrUITests.debug.xcconfig"; path = "Target Support Files/Pods-Calendr-CalendrUITests/Pods-Calendr-CalendrUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		7A30B1499342F0E3D77C6B7A /* Pods_Calendr.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Calendr.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		81331A76F7C52C63978FBE46 /* Pods-CalendrTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CalendrTests.debug.xcconfig"; path = "Target Support Files/Pods-CalendrTests/Pods-CalendrTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -212,6 +214,7 @@
 				5CDCDC32282A48D500F0296E /* ApplicationCoordinator.swift */,
 				5CDCDC54282CD16F00F0296E /* SigninCoordinator.swift */,
 				5CDCDC5D282CDA2F00F0296E /* EventsCoordinator.swift */,
+				5CFCBB4628316A31001223CE /* SignupCoordinator.swift */,
 			);
 			path = ApplicationCoordinator;
 			sourceTree = "<group>";
@@ -569,6 +572,7 @@
 				5CDCDC57282CD70B00F0296E /* EventsViewController.swift in Sources */,
 				5CDCDC33282A48D500F0296E /* ApplicationCoordinator.swift in Sources */,
 				5CDCDC51282C1E7900F0296E /* UserManagementService.swift in Sources */,
+				5CFCBB4728316A31001223CE /* SignupCoordinator.swift in Sources */,
 				5CDCDC43282AC48200F0296E /* SigninViewController.swift in Sources */,
 				5CDCDC5C282CD8B500F0296E /* EventsViewModel.swift in Sources */,
 				5CDCDC55282CD16F00F0296E /* SigninCoordinator.swift in Sources */,
