@@ -15,12 +15,9 @@ protocol UserManagementProtocol {
     var hasExitedPrematurely: PublishRelay<Bool> { get }
     func userSignin(email: String, hash: String)
     func getSavedUser() -> UserModel?
-    
-    // TODO: Implement for the register feature
-    /**
-     var isUsernameAvailable: PublishRelay<Bool> { get }
-     var isRegisterSuccessful: PublishRelay<Bool> { get }
-     func checkUsernameAvailability(userInput: String)
-     func registerNewUser(username: String, password: String)
-     */
+
+    var isSignupSuccessful: PublishRelay<Bool> { get }
+    var isEmailAvailable: PublishRelay<Bool> { get }
+    func checkIfEmailAvailable(email: String)
+    func userSignup(email: String, hash: String)
 }

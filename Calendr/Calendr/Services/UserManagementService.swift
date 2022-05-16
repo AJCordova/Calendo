@@ -12,9 +12,11 @@ import FirebaseFirestore
 
 
 class UserManagementService: UserManagementProtocol {
+    var isEmailAvailable: PublishRelay<Bool> = PublishRelay<Bool>()
     var isSigninValid = PublishRelay<Bool>()
     var hasExitedPrematurely = PublishRelay<Bool>()
     var errorMessage = PublishRelay<String>()
+    var isSignupSuccessful = PublishRelay<Bool>()
     
     private static var db = Firestore.firestore()
     private var reference: CollectionReference? = db.collection(Constants.FirebaseStrings.userCollectionReference)
@@ -44,14 +46,45 @@ extension UserManagementService {
                         let data = document.data()
                         if hash.elementsEqual((data["password"] as? String)!) {
                             self.isSigninValid.accept(true)
-                            print("sign in valid")
                         } else {
                             self.isSigninValid.accept(false)
-                            print("Incorrect Email or Password")
                         }
                     } else {
                         self.isSigninValid.accept(false)
-                        print("Incorrect Email or Password")
+                    }
+                }
+            }
+    }
+    
+    func userSignup(email: String, hash: String) {
+        docReference = reference?
+            .addDocument(data: ["email": email, "password": hash]) { error in
+                if let err = error {
+                    print("Error: \(err.localizedDescription)")
+                    self.errorMessage.accept("Register Error")
+                    self.hasExitedPrematurely.accept(true)
+                } else {
+                    let userID = self.docReference?.documentID
+                    guard userID != nil else {
+                        self.isSignupSuccessful.accept(false)
+                        return
+                    }
+                    self.isSignupSuccessful.accept(true)
+                }
+            }
+    }
+    
+    func checkIfEmailAvailable(email: String) {
+        reference?.whereField(Constants.FirebaseStrings.userReference, isEqualTo: email)
+            .getDocuments() { (snapshot, error) in
+                if let err = error {
+                    print("Error: \(err)")
+                    self.hasExitedPrematurely.accept(true)
+                } else {
+                    if snapshot!.isEmpty {
+                        self.isEmailAvailable.accept(true)
+                    } else {
+                        self.isEmailAvailable.accept(false)
                     }
                 }
             }
