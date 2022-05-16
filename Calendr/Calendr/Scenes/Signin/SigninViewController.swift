@@ -13,7 +13,7 @@ import EventKitUI
 
 class SigninViewController: UIViewController {
     
-    var viewModel: SigninViewModelTypes
+    private var viewModel: SigninViewModelTypes
     
     lazy var emailTextField: UITextField = UITextField()
     lazy var emailErrorLabel: UILabel = UILabel()
@@ -36,6 +36,7 @@ class SigninViewController: UIViewController {
     override func loadView() {
         super.loadView()
         view.backgroundColor = .systemBackground
+        self.navigationController?.isNavigationBarHidden = true
         setupViews()
     }
     
@@ -124,18 +125,16 @@ extension SigninViewController {
     }
     
     private func setupSignupButton() {
-// TODO: implement user signup feature first
-//        signupButton.backgroundColor = .systemBlue
-//        signupButton.setTitle("Sign up", for: .normal)
-//        signupButton.layer.cornerRadius = 9.0
-//        signupButton.isEnabled = false
-//        signupButton.addTarget(self, action: #selector(self.signupUser), for: .touchUpInside)
-//        view.addSubview(signupButton)
-//
-//        signupButton.snp.makeConstraints { make in
-//            make.top.equalTo(signinButton.snp.bottom).offset(10)
-//            make.left.right.equalToSuperview().inset(50)
-//        }
+        signupButton.backgroundColor = .systemBlue
+        signupButton.setTitle("Sign up", for: .normal)
+        signupButton.layer.cornerRadius = 9.0
+        signupButton.addTarget(self, action: #selector(self.signupUser), for: .touchUpInside)
+        view.addSubview(signupButton)
+
+        signupButton.snp.makeConstraints { make in
+            make.top.equalTo(signinButton.snp.bottom).offset(20)
+            make.left.right.equalToSuperview().inset(50)
+        }
     }
     
     @objc private func signinUser() {
@@ -143,13 +142,23 @@ extension SigninViewController {
     }
     
     @objc private func signupUser() {
-        //TODO: Implement viewModel.inputs.signupNewUser
+        viewModel.inputs.signupUser()
     }
 }
 
 // MARK: Bindings
 extension SigninViewController {
     private func setupBindings() {
+        let enableButton = Observable
+            .combineLatest(viewModel.outputs.isEmailValid, viewModel.outputs.isPasswordValid) {
+                $0.isValid && $1.isValid
+            }
+            .share(replay: 1)
+
+        enableButton
+            .bind(to: signinButton.rx.isEnabled)
+            .disposed(by: disposeBag)
+        
         emailTextField.rx.text.orEmpty.distinctUntilChanged()
             .bind(onNext: viewModel.inputs.emailDidChange(email:))
             .disposed(by: disposeBag)
@@ -172,16 +181,6 @@ extension SigninViewController {
         
         viewModel.outputs.invalidPasswordMessage
             .bind(to: passwordErrorLabel.rx.text)
-            .disposed(by: disposeBag)
-        
-        let enableButton = Observable
-            .combineLatest(viewModel.outputs.isEmailValid, viewModel.outputs.isPasswordValid) {
-                $0.isValid && $1.isValid
-            }
-            .share(replay: 1)
-
-        enableButton
-            .bind(to: signinButton.rx.isEnabled)
             .disposed(by: disposeBag)
     }
 }
